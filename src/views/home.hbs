@@ -5,7 +5,11 @@
     <button class="search-random-btn" id="search-random-btn">Random Meal</button>
   </div>
   <div class="result" id="result">
-    
+    <ul>
+      {{#each meals}}
+        <li>{{this.strYoutube}}</li>
+      {{/each}}
+    </ul>  
   </div>
 </main>
 
