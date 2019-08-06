@@ -1,0 +1,41 @@
+{
+  "name": "make-your-meal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
+  },
+  "scripts": {
+    "test": "node ./test/test.js | tap-spec",
+    "dev": "nodemon ./src/index.js",
+    "cover": "nyc node ./test/test.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G7/make-your-meal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G7/make-your-meal/issues"
+  },
+  "homepage": "https://github.com/GSG-G7/make-your-meal#readme"
+}
