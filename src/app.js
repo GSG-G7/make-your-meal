@@ -4,9 +4,11 @@ const exphbs = require('express-handlebars');
 
 const path = require('path');
 
+const routes = require('./routes');
+
 const app = express();
 
-const routes = require('./routes');
+app.use(express.static(path.join(__dirname, '..', 'public')));
 // helper
 // // you need to access with hbs files
 app.set('views', path.join(__dirname, 'views'));
