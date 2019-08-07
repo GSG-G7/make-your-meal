@@ -5,11 +5,25 @@
     <button class="search-random-btn" id="search-random-btn">Random Meal</button>
   </div>
   <div class="result" id="result">
-    <ul>
       {{#each meals}}
-        <li>{{this.strYoutube}}</li>
+    <div class="meal">
+      <h1>{{this.strMeal}} </h1>
+      <div class="meal-content">
+        <img src="{{this.strMealThumb}}" alt="meal-image" class="meal-img">
+        <div class="content">
+          <ul>
+            <li>{{this.strIngredient1}}</li>
+            <li>{{this.strIngredient2}}</li>
+            <li>{{this.strIngredient3}}</li>
+          </ul>
+        </div>
+        <p>you can watch how to make it here :<a href="{{this.strYoutube}}">click here </a></p>
+        <p>source : <a href="{{this.strSource}}"></a></p>
+      </div>
+
+    </div>
+       
       {{/each}}
-    </ul>  
   </div>
 </main>
 
