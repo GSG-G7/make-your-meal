@@ -35,9 +35,8 @@ test('Testing the search route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       const actual = typeof res.text;
-      // console.log(typeof res.text);
       t.error(err);
       t.equal(actual, 'string');
-      t.end()
+      t.end();
     });
 });
