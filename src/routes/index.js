@@ -1,6 +1,5 @@
 const express = require('express');
 
-// const search = require('./search');
 
 const router = express.Router();
 
@@ -17,16 +16,16 @@ router.get('/', (req, res) => {
 });
 
 router.post('/search', (req, res, next) => {
-  // const query = '';
   const query = req.body.input;
   const key = process.env.API_KEY;
-  // console.log(req);
   const url = `https://www.themealdb.com/api/json/v1/${key}/search.php?s=${query}`;
   fetch(url)
     .then(data => data.json())
-    .then(data => res.render('home', {
-      meals: data.meals,
-    }))
+    .then((data) => {
+      res.render('home', {
+        meals: data.meals,
+      });
+    })
     .catch(error => next(error));
 });
 
