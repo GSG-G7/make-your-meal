@@ -17,7 +17,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/search', (req, res, next) => {
+  // const query = '';
   const query = req.body.input;
+  // console.log(req);
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
   fetch(url)
     .then(data => data.json())
