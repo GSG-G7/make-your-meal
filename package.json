@@ -27,7 +27,8 @@
   "scripts": {
     "test": "node ./test/test.js | tap-spec",
     "dev": "nodemon ./src/index.js",
-    "cover": "nyc node ./test/test.js"
+    "cover": "nyc node ./test/test.js",
+    "start": "node ./src/index.js"
   },
   "repository": {
     "type": "git",

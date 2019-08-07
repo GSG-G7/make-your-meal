@@ -118,7 +118,7 @@ overflow: hidden;
   .input{
     width: 70%
   }
-  ..ingratients-list li{
+  .ingratients-list li{
     padding: 2%;
   }
 }
