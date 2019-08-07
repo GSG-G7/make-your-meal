@@ -1,5 +1,7 @@
 const express = require('express');
 
+const bodyParser = require('body-parser');
+
 const exphbs = require('express-handlebars');
 
 const path = require('path');
@@ -9,6 +11,8 @@ const routes = require('./routes');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.use(bodyParser.json());
 // helper
 // // you need to access with hbs files
 app.set('views', path.join(__dirname, 'views'));
