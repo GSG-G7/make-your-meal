@@ -14,9 +14,9 @@
         <img src="{{this.strMealThumb}}" alt="meal-image" class="meal-img">
         <div class="content">
           <ul>
-            <li>{{this.strIngredient1}}</li>
-            <li>{{this.strIngredient2}}</li>
-            <li>{{this.strIngredient3}}</li>
+            {{#each (Ingredient this) }}
+            <li>{{this}}</li>
+            {{/each}}
           </ul>
         </div>
         <p>you can watch how to make it here :<a href="{{this.strYoutube}}">click here </a></p>

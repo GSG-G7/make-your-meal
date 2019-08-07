@@ -1,10 +1,10 @@
 const express = require('express');
 
-const bodyParser = require('body-parser');
-
 const exphbs = require('express-handlebars');
 
 const path = require('path');
+const { Ingredient } = require('./views/helpers/ingredient');
+
 
 const routes = require('./routes');
 
@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // helper
+
 // // you need to access with hbs files
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -25,6 +26,9 @@ app.engine(
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     defaultLayout: 'main',
+    helpers: {
+      Ingredient,
+    },
   }),
 );
 
