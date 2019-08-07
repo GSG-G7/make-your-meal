@@ -36,7 +36,20 @@ test('Testing the search route', (t) => {
     .end((err, res) => {
       const actual = typeof res.text;
       t.error(err);
-      t.equal(actual, 'string');
+      t.equal(actual, 'string', 'should return html string');
+      t.deepEqual(res.text.includes('<!DOCTYPE html>'), true, 'type of the response is html ');
+      t.end();
+    });
+});
+
+test('wrong path return status code 404', (t) => {
+  supertest(app)
+    .get('/asd')
+    .expect(404)
+    .expect('Content-Type', /html/)
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.statusCode, 404, 'Status Code should be 404');
       t.end();
     });
 });
