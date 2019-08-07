@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 const fetch = require('node-fetch');
-
+require('dotenv').config();
 const Bluebird = require('bluebird');
 const { client, server } = require('./errors');
 
@@ -19,8 +19,9 @@ router.get('/', (req, res) => {
 router.post('/search', (req, res, next) => {
   // const query = '';
   const query = req.body.input;
+  const key = process.env.API_KEY;
   // console.log(req);
-  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
+  const url = `https://www.themealdb.com/api/json/v1/${key}/search.php?s=${query}`;
   fetch(url)
     .then(data => data.json())
     .then(data => res.render('home', {
