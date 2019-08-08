@@ -13,3 +13,7 @@
 //   })
 //     .catch(error => console.log(error));
 // });
+document.querySelector('form').addEventListener('submit', (e) => {
+
+  // e.preventDefault();
+});
