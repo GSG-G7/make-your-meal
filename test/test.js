@@ -19,9 +19,12 @@ test('Home root return status code 200', (t) => {
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
-      t.error(err);
-      t.equal(res.statusCode, 200, 'Status Code should be 200');
-      t.end();
+      if (err) {
+        t.error(err);
+      } else {
+        t.equal(res.statusCode, 200, 'Status Code should be 200');
+        t.end();
+      }
     });
 });
 
@@ -34,11 +37,14 @@ test('Testing the search route', (t) => {
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
-      const actual = typeof res.text;
-      t.error(err);
-      t.equal(actual, 'string', 'should return html string');
-      t.deepEqual(res.text.includes('<!DOCTYPE html>'), true, 'type of the response is html ');
-      t.end();
+      if (err) {
+        t.error(err);
+      } else {
+        const actual = typeof res.text;
+        t.equal(actual, 'string', 'should return html string');
+        t.deepEqual(res.text.includes('<!DOCTYPE html>'), true, 'type of the response is html ');
+        t.end();
+      }
     });
 });
 
@@ -48,8 +54,11 @@ test('wrong path return status code 404', (t) => {
     .expect(404)
     .expect('Content-Type', /html/)
     .end((err, res) => {
-      t.error(err);
-      t.equal(res.statusCode, 404, 'Status Code should be 404');
-      t.end();
+      if (err) {
+        t.error(err);
+      } else {
+        t.equal(res.statusCode, 404, 'Status Code should be 404');
+        t.end();
+      }
     });
 });
